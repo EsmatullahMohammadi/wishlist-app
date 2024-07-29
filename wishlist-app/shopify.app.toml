@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "def37a83828ecdbf84c0b8d2120903cc"
+name = "wishlist-app"
+handle = "wishlist-app-178"
+application_url = "https://ted-bottles-corporations-nothing.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "codeinspire-app-development.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://ted-bottles-corporations-nothing.trycloudflare.com/auth/callback",
+  "https://ted-bottles-corporations-nothing.trycloudflare.com/auth/shopify/callback",
+  "https://ted-bottles-corporations-nothing.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
